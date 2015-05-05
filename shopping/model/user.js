@@ -1,6 +1,6 @@
 var mongoose=require('mongoose');
 var order=require('./order');
-var user=new mongoose.Schema({
+var userschema=new mongoose.Schema({
 	name:{
 		first:{
 			type:String,
@@ -25,6 +25,7 @@ var user=new mongoose.Schema({
 	password:String,
 	role:{
 		type:String,
+		default:'customer',
 		enum:['admin', 'customer']
 	},
 	order:{
@@ -32,6 +33,29 @@ var user=new mongoose.Schema({
 		ref:'order'
 	},
 	
+	
 });
 
-module.exports=mongoose.model('user',user);
+var User=mongoose.model('user',userschema);
+ 
+User.find({role:'admin'},function(err,users){
+ if(err)
+ {
+ 	return res.json({error:err});
+ }
+ if (users.length>0) {return}	
+ else
+  {
+    var user=new User();
+    user.role="admin";
+    user.username="admin";
+    user.set('password',"admin123");
+    user.save(function(err){
+    	if(err)
+    		return err;
+    return;
+    });
+   }
+});
+
+module.exports=User;

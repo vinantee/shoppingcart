@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+   
+   <div class="login_content"></div>
+
+   <script type="text/x-template" id="login-template"> 
+   <div class="navbar navbar-inverse navbar-static-top">
+    <ul class="nav navbar-nav  navbar-right">
+       <li class="active"> <a href="#register">Register</a></li>
+    </ul>
+    </div>
+    
+   
+    <div class="container">
+    <h2> WELCOME </h2>
+     
+    <form id="Login">    
+   	<div class="row">
+  		<div class="col-md-12">
+  			<img src="stylesheets/img/index.jpeg">
+  		</div>
+     </div>
+          
+        <div class="row">
+  	    <div class="col-md-12">
+          <h2>Login form</h2>
+           
+           UserName:<input type="text" placeholder="name" name="username"class="pro"><br/>
+           Password:<input type="password" placeholder="password" name="password" class="pro">
+         </div>
+         </div>
+       
+
+      <button type="submit" class="btn btn-primary">Sign In</button>
+      <button type="submit" class="btn btn-danger">Cancel</button>
+
+      </div>
+       </form>
+      </script>
+      <script type="text/x-template" id="Registration-template">
+       <center><h2>Registration Form</h2></center>
+         <div class="container">
+         <form id="register">
+          
+          <div class="row">
+          <div class="col-md-12">
+           Firstname:<input type="text" placeholder="firstname" name="name.first" class="f"><br>
+           Lastname:<input type="text" placeholder="lastname" name="name.last" class="l"><br>
+           UserName:<input type="text" placeholder="username" name="username" class="u"><br>
+           Address:<input type="text" placeholder="address" name="address.vicinity" class="a"><br>
+           City:<input type="text" placeholder="city" name="address.city" class="c"><br>
+           State:<input type="text" placeholder="state" name="address.state" class="s"><br>
+           Pincode:<input type="text" placeholder="pincode" name="address.pincode" class="p"><br>
+           Email:<input type="text" placeholder="email" name="email" class="e"><br>
+           Password:<input type="password" placeholder="password" name="password" class="pass"><br>
+          <!--<button type="submit" class="btn btn-primary"id="reg">Add Product</button>-->
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+     
+        </div>
+        </form>
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+      <script src="/javascripts/lib/jquery.min.js"></script>
+      <script src="/javascripts/backbone/login side/backbone_utils.js"></script>
+      <script src="/javascripts/lib/underscore.js"></script>
+      <script src="/javascripts/lib/backbone.js"></script>
+      <script src="/javascripts/lib/handlebars.min.js"></script>
+      <script src="/javascripts/backbone/login side/model/loginmodels.js"></script>
+      <script src="/javascripts/backbone/login side/view/loginview.js"></script>
+      <script src="/javascripts/backbone/login side/view/registrationview.js"></script>
+      <script src="/javascripts/backbone/login side/route.js"></script>
+   
+     
+   </body>
+</html>

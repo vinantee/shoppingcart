@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+   <div class="user_content"></div>
+   <script type="text/x-template" id="user-template">
+    <form id="user">
+     <div class="row">
+     {{#each product}}
+      <div class="col-xs-3">
+       <div class="thumbnail">
+        <img src="stylesheets/img/mc.jpg" >
+         <div class="caption">
+          {{#if this.stock.status}}
+            <h4><p>Product Name={{this.prodname}} <br/>
+                   Price={{this.real_price}}
+            </p></h4>
+            <p><a href="#products/{{this._id}}" class="btn btn-primary" role="button">Buy</a></p>
+               </div>
+              </div> 
+             </div>
+             {{else}}
+             <p><a href="#products/{{this._id}}" class="btn btn-primary" role="button">Out Of Stock</a></p>
+            {{/if}}
+            {{/each}}
+             
+               
+            </div>
+          </form>
+        </script>
+       
+       <script type="text/x-template" id="productdetail-template">
+        <form id=details>
+         <input type="hidden" id="id" value="{{product.id}}" name="id">
+        <div class="row">
+        <div class="col-sm-6">
+        <img src="stylesheets/img/mc.jpg">
+        </div>
+         <div class="col-md-6">   
+          
+         Product_ID:&nbsp{{product.productId}}<br/><br>
+           
+         ProductName:&nbsp&nbsp{{product.prodname}}<br/><br>
+         Manufacturing_Date:&nbsp&nbsp {{product.manufacturing_date}}<br/><br>
+         Expiry_Date:&nbsp&nbsp  {{product.Expiry_date}}<br/><br>
+         Real_Price:&nbsp&nbsp {{product.real_price}}<br/><br>
+         Discounted_Price:&nbsp&nbsp {{product.discount_price}}<br/><br>
+        <!-- Stock Available:<input type="text" name="status" class="stock" value="{{product.stock.status}}"><br/>-->
+         Stock Quantity:&nbsp&nbsp {{product.stock.quantity}}
+          
+         </div>
+         {{#if product.stock.status}}
+        <a href="#"><button type="submit" class="btn btn-primary">Checkout</button></a>
+        {{else}}
+         <a href="#"><button type="submit" class="btn btn-primary" disabled>Out of Stock</button></a>
+         {{/if}}
+        </form>
+        </script>
+
+  	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+      <script src="/javascripts/lib/jquery.min.js"></script>
+      <script src="/javascripts/backbone/user side/backbone_utils.js"></script>
+      <script src="/javascripts/lib/underscore.js"></script>
+      <script src="/javascripts/lib/backbone.js"></script>
+      <script src="/javascripts/lib/handlebars.min.js"></script>
+      <script src="/javascripts/backbone/user side/model/usermodel.js"></script>
+       <script src="/javascripts/backbone/user side/view/proddetails.js"></script>
+      <script src="/javascripts/backbone/user side/view/userview.js"></script>
+      <script src="/javascripts/backbone/user side/route.js"></script>
+
+   </body>
+   </html>

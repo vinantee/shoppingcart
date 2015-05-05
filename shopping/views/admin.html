@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+   
+   <div class="admin"></div>
+    
+    <script type="text/x-template" id="admin-template"> 
+     <div class="navbar navbar-inverse navbar-static-top">
+      <ul class="nav navbar-nav  navbar-right">
+       <li class="active" id="add"> <a href="#products">Add Product</a></li>
+       </ul>
+      </div>
+     <table style="width:70%">
+      <thead>
+      <tr>
+       <th>ProductId</th>
+       <th>Product_Name</th>
+       <th>Manufacturing_date</th>
+       <th>Expiry_date</th>
+       <th>Real_Price</th>
+       <th>Discounted_Price</th>
+       <th>Stock Available</th>
+       <th>Stock Quantity</th>
+       <th>Action</th>
+       </tr>
+       </thead>
+
+        <tbody>
+         {{#each products}}
+        <tr>
+          <td>{{this.productId}}</td>
+          <td>{{this.prodname}}</td>
+          <td>{{this.manufacturing_date}}</td>
+          <td>{{this.Expiry_date}}</td>
+          <td>{{this.real_price}}</td>
+          <td>{{this.discount_price}}</td>
+          <td>{{this.stock.status}}</td>
+          <td>{{this.stock.quantity}}</td>
+           <td><a href="#products/{{this._id}}"><button type="submit">Edit</button>
+           </a></td>
+        </tr>
+         {{/each}}
+         </tbody>
+      </table>
+    </script>
+ 
+        <script type="text/x-template" id="add-prod-template">
+         <form id="addprod">
+          {{#if editdetails}}
+         <input type="hidden" name="id" value="{{editdetails.id}}">
+        {{/if}}
+        <div class="row">
+        <div class="col-md-12">
+        {{#if editdetails}}
+        <h2>Edit Product</h2>
+         {{else}}
+          <h2>Add Product</h2>
+          {{/if}}  
+           {{#if editdetails}}
+           ProductId:<input type="text"name="productId" class="proper" value="{{editdetails.productId}}"><br/>
+           ProductName:<input type="text" name="prodname" class="prop" value="{{editdetails.prodname}}"><br/>
+           Manufacturing_Date:<input type="text" name="manufacturing_date" class="pro" value="{{editdetails.manufacturing_date}}"><br/>
+           Expiry_Date:<input type="text" name="Expiry_date" class="exp" value="{{editdetails.Expiry_date}}"><br/>
+           Real_Price:<input type="text" name="real_price" class="real" value="{{editdetails.real_price}}"><br/>
+           Discounted_Price:<input type="text" name="discount_price" class="dis" value="{{editdetails.discount_price}}"><br/>
+           <!--Stock Available:<input type="text" name="stock.status" class="stock" value="{{editdetails.stock.status}}"><br/>-->
+           Stock Quantity:<input type="text" name="stock.quantity" class="stock"value="{{editdetails.stock.quantity}}"><br/>
+
+           {{else}}
+            ProductId:<input type="text"name="productId" class="proper"><br/>
+           ProductName:<input type="text" name="prodname" class="prop"><br/>
+           Manufacturing_Date:<input type="text" name="manufacturing_date" class="pro"><br/>
+           Expiry_Date:<input type="text" name="Expiry_date" class="exp"><br/>
+           Real_Price:<input type="text" name="real_price" class="real"><br/>
+           Discounted_Price:<input type="text" name="discount_price" class="dis"><br/>
+           <!--Stock Available:<input type="text" name="stock.status" class="stock"><br/>-->
+           Stock Quantity:<input type="text" name="stock.quantity" class="stock"><br/>
+           {{/if}}
+          </div>
+         </div>
+         <button type="submit" class="btn btn-primary submit">Done</button>
+         </form>
+     </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+      <script src="/javascripts/lib/jquery.min.js"></script>
+      <script src="/javascripts/backbone/admin side/backbone_utils.js"></script>
+      <script src="/javascripts/lib/underscore.js"></script>
+      <script src="/javascripts/lib/backbone.js"></script>
+      <script src="/javascripts/lib/handlebars.min.js"></script>
+      <script src="/javascripts/backbone/admin side/models/addprod.js"></script>
+      <script src="/javascripts/backbone/admin side/view/admin.js"></script>
+      <script src="/javascripts/backbone/admin side/view/addproduct.js"></script>
+      <script src="/javascripts/backbone/admin side/view/editview.js"></script>
+      <script src="/javascripts/backbone/admin side/route.js"></script>   
+     
+   </body>
+</html>
+
+    
